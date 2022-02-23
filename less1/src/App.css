@@ -1,0 +1,9 @@
+.navigation{
+    display: flex;
+}
+.btn{
+    margin: 0 10px;
+}
+[active = 'true']{
+    color: blue;
+}
