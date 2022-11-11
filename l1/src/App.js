@@ -26,7 +26,7 @@ import React from "react";
 //     }
 //
 //     handleListener(name) {
-//         this.setState({currentPage: this.state.currentPage = name});
+//         this.setState({currentPage: name});
 //         if (name === 'home') {
 //             this.page = <Home/>
 //         }
@@ -56,7 +56,7 @@ import React from "react";
 // }
 
 const Page = (props) => {
-    return <span>{props.name} page</span>;
+    return <span className='page'>{props.name} page</span>;
 };
 
 class Nav extends React.Component {
@@ -67,19 +67,46 @@ class Nav extends React.Component {
     }
 
     handleListener(name) {
-        this.setState({currentPage: this.state.currentPage = name});
-        this.page = <Page name = {name[0].toUpperCase() + name.slice(1)}/>;
-        console.log(this.state.currentPage)
+        this.setState({currentPage: name});
+        this.page = <Page name={name[0].toUpperCase() + name.slice(1)}/>;
     }
 
     render() {
         return <div>
-            <div className='navigation'>
-                <div className='btn' onClick={() => this.handleListener('home')}>Home</div>
-                <div className='btn' onClick={() => this.handleListener('news')}>News</div>
-                <div className='btn' onClick={() => this.handleListener('callBack')}>Callback</div>
-                <div className='btn' onClick={() => this.handleListener('contacts')}>Contacts</div>
-            </div>
+            <ul className="navigation">
+                <li>
+                    <a href="#" className='btn' onClick={(e) => {
+                        e.preventDefault();
+                        this.handleListener('home')}}>
+
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#" className='btn' onClick={(e) => {
+                        e.preventDefault();
+                        this.handleListener('news')}}>
+
+                        News
+                    </a>
+                </li>
+                <li>
+                    <a href="#" className='btn' onClick={(e) => {
+                        e.preventDefault();
+                        this.handleListener('callBack')}
+                    }>
+                        Callback
+                    </a>
+                </li>
+                <li>
+                    <a href="#" className='btn' onClick={(e) => {
+                        e.preventDefault();
+                        this.handleListener('contacts')}
+                    }>
+                        Contacts
+                    </a>
+                </li>
+            </ul>
             {this.page}
         </div>
     }

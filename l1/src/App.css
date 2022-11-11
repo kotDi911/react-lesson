@@ -1,11 +1,17 @@
 .navigation{
     display: flex;
 }
+
+li{
+    list-style-type: none;
+}
 .btn{
+    text-decoration: none;
     font-size: 22px;
     color: blue;
     margin: 0 10px;
 }
-[active = 'true']{
-    color: blue;
+.page{
+    margin: 20px;
+    display: inline-block;
 }
